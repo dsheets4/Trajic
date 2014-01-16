@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>  
+   <head>   
+      <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>   
+      <title>Parallel Coordinates</title>   
+      <LINK href="parallel.css" rel="stylesheet" type="text/css">
+
+      <!-- Scripts and references for the map -->
+      <!-- link href="map.css" rel="stylesheet" type="text/css" -->
+      <!-- script src="http://www.openlayers.org/api/OpenLayers.js" ></script -->
+      <!-- script src="scripts/map.js"></script -->
+
+   </head>  
+   <body> <!-- onload="init();" -->
+      <script type="text/javascript" src="scripts/d3.v2.js"></script>   
+      <script type="text/javascript" src="scripts/parallelfunction.js"></script> 
+      Minimum Values
+      <input type="button" id="left" name="left" value="-" align = "left" onclick="buttonLeft()">
+      <input type="text" id="max" name="max" value=4.0 maxlength="10">
+      <input type="button" id="right" name="right" value="+"  onclick="buttonRight()">
+      Number of Roads bigger than Minimum Value:
+      <select id="Num">
+         <option value=1>1</option>
+         <option value=2 selected >2</option>
+         <option value=3>3</option>
+         <option value=4>4</option>
+         <option value=5>5</option>
+         <option value=6>6</option>
+         <option value=7>7</option>
+         <option value=8>8</option>
+      </select>
+      <input type="button" name="decide" value="Change!" id="cha" onclick="ReInitial()">
+      <br>
+      <hr noshade size=1 width="100%">
+      <table id="t2" align="left">
+         <tr><th width="2%" align="left">Selected Roads(Click the lines in the plot!)</th></tr>
+      </table>
+      <br>
+      <input type="button" align="buttom"id = "file"  name="writefile" value="Plot roads on map" onclick="WriteToFile();" >
+      <input type="button" align="buttom"id = "clear_selected_road"  name="clearSelectedRoad" value="Clear selected roads" onclick="clearSelectedRoads();" >
+      <br>
+      <hr noshade size=1 width="100%">
+      <input type="button" name="resetPCP" value="Reset PCP" id="reset" onclick="ResetPCP()">
+      <br>
+      <script type="text/javascript" language="javascript">
+         var margin = {top: 20, right: 10, bottom: 10, left: 10};
+         var width = 1150 - margin.right - margin.left;
+         var height = 500 - margin.top - margin.bottom;
+         var x = d3.scale.ordinal().rangePoints([0, width], 1);
+         var y = {};
+         var roadfile=[];
+         var background, foreground,line,svg, i,j;
+         var topicid =[];
+         var newpc=[];
+         var topict = ["RoadID","Topic1", "Topic2","Topic3","Topic4","Topic5","Topic6","Topic7","Topic8"];
+         var temp,index,temp1;
+         Initial();
+      </script>
+
+      <!-- Place the map in the page -->   
+      <!-- div id="basicMap"></div -->
+
+   </body>
+</html>
