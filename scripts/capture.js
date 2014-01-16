@@ -1,3 +1,0 @@
-
-view.captureScreenShot( "TaxiVis.png" );
-
